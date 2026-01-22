@@ -14,8 +14,8 @@ app.get('/home',(req,res)=>{
 app.get('/about',(req,res)=>{
   res.send('This is about page')
 })
-app.listen(3000)//server start
 
 app.get('/app',(req,res)=>{
   res.send('this is app')
 })
+  app.listen(3000)//server start
