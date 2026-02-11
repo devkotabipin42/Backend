@@ -28,7 +28,7 @@ authRouter.post('/register',async(req,res)=>{
   )
   
 res.cookie('jwt_token',token)
-  res.status(201).json({
+ return  res.status(201).json({
     message:"user created sucessfully",user,token
   })
 })
@@ -42,9 +42,9 @@ res.status(404).json({
     })
   }
 
-  const IsExistPassword= user.password===crypto.createHash('md5').update(password).digest('hex')
+  const IsExistPassword= user.password===crypto.createHash('SHA256').update(password).digest('hex')
   if(!IsExistPassword){
-    res.status(404).json({
+    return res.status(404).json({
       message:"password doesnot match"
     })
   }
