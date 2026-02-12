@@ -9,3 +9,6 @@
    =>can see the feed
    =>like posts
    =>save post   
+
+==>users
+　　=>
