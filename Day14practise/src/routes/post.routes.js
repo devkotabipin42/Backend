@@ -12,4 +12,8 @@ postRouter.post('/',upload.single('image'),PostController.createPostController)
 // install multer then
 
 
-module.exports=postRouter
+postRouter.get('/',PostController.getPostController)
+
+
+
+module.exports=postRouter 
