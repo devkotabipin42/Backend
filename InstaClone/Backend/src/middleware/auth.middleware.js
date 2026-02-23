@@ -21,3 +21,5 @@ async function IdentifyUser(req,res,next){
 
   next()
 }
+
+module.exports=IdentifyUser
