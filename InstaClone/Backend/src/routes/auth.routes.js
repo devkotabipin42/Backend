@@ -1,6 +1,7 @@
 const express = require('express')
+const IdentifyUser=require('../middleware/auth.middleware')
 
-const {registerController,loginController} = require('../controller/auth.controller')
+const {registerController,loginController,getMeController} = require('../controller/auth.controller')
 
 
 const authRouter = express.Router()
@@ -9,6 +10,8 @@ const authRouter = express.Router()
 authRouter.post('/register',registerController)
 
 authRouter.post('/login',loginController)
+
+authRouter.get('/get-me',IdentifyUser,getMeController)
 
 
 
