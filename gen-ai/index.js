@@ -1,15 +1,24 @@
 import 'dotenv/config'
-import readline from "readline"
+import readline from "readline/promises"
 import { ChatMistralAI } from "@langchain/mistralai";
+import { HumanMessage } from 'langchain';
 const rl = readline.createInterface({
     input:process.stdin,
     output:process.stdout
 })
 
 const model = new ChatMistralAI({
-    model:'mistral-small-latest'
+    model:'mistral-small-latest',
 })
+const message =[]
+while(true){
+    const userInput = await rl.question("\x1b[32mYou:\x1b[0m " )
 
-const response = await module.invoke('what is the biggest animal on the world')
+    message.push(new HumanMessage(userInput))
+    const response = await model.invoke(message)
 
-console.log(response.text);
+    console.log(response.text);
+    console.log(`\x1b[32mYou:\x1b[0m ${response.content}` );
+    
+}
+rl.close()
